@@ -21,7 +21,7 @@ const useGeneratePodcast = ({
   const generateUploadUrl = useMutation(api.files.generateUploadUrl);
   const { startUpload } = useUploadFiles(generateUploadUrl)
 
-  const getPodcastAudio = useAction(api.openai.generateAudioAction)
+  const getPodcastAudio = useAction(api.googleai.generateAudioAction)
 
   const getAudioUrl = useMutation(api.podcasts.getUrl);
 
@@ -38,8 +38,7 @@ const useGeneratePodcast = ({
 
     try {
       const response = await getPodcastAudio({
-        voice: voiceType,
-        input: voicePrompt
+        input: voicePrompt 
       })
 
       const blob = new Blob([response], { type: 'audio/mpeg' });

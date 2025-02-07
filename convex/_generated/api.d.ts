@@ -14,6 +14,7 @@ import type {
   FunctionReference,
 } from "convex/server";
 import type * as files from "../files.js";
+import type * as googleai from "../googleai.js";
 import type * as http from "../http.js";
 import type * as openai from "../openai.js";
 import type * as podcasts from "../podcasts.js";
@@ -30,6 +31,7 @@ import type * as user from "../user.js";
  */
 declare const fullApi: ApiFromModules<{
   files: typeof files;
+  googleai: typeof googleai;
   http: typeof http;
   openai: typeof openai;
   podcasts: typeof podcasts;
