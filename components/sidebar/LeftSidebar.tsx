@@ -5,10 +5,13 @@ import Image from 'next/image'
 import { sidebarLinks } from '@/constants'
 import { usePathname, useRouter } from 'next/navigation'
 import { cn } from '@/lib/utils';
+import { SignedIn, SignedOut, useClerk } from '@clerk/nextjs';
+import { Button } from '../ui/button';
 
 const LeftSidebar = () => {
   const pathname = usePathname()
   const router = useRouter()
+  const {signOut} = useClerk()
   return (
 <section className="className left_sidebar">
     <nav className="flex flex-col gap-6">
@@ -24,6 +27,22 @@ const LeftSidebar = () => {
         })}
 
     </nav>
+    <SignedOut>
+      <div className="flex-center w-full pb-14 max-lg:px-4 lg:pr-8">
+        <Button asChild className='text-16 w-full bg-orange-1 font-extrabold'>
+          <Link href="/sign-in">Sign in</Link>
+
+        </Button>
+      </div>
+    </SignedOut>
+    <SignedIn>
+      <div className="flex-center w-full pb-14 max-lg:px-4 lg:pr-8">
+        <Button onClick={()=>signOut(()=>router.push('/'))} asChild className='text-16 w-full bg-orange-1 font-extrabold'>
+        Log out
+
+        </Button>
+      </div>
+    </SignedIn>
 </section>
   )
 }

@@ -8,7 +8,7 @@ import { api } from "@/convex/_generated/api";
 const Home = () => {
   const trendingPodcasts = useQuery(api?.podcasts?.getTrendingPodcasts);
 
-
+  // https://youtu.be/zfAb95tJvZQ?si=A_kChEbQABBo2cVD
   // console.log( 
   //   process.env.CONVEX_DEPLOYMENT,"1",
   //   process.env.NEXT_PUBLIC_CONVEX_URL,"2",
